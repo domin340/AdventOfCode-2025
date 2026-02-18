@@ -14,28 +14,35 @@ def to_bool(s: str) -> bool:
 def initialize_directories(ask: bool = True, silent: bool = False):
     yell = not silent and not ask
 
-    if exists('bin') and ask:
-        ans = to_bool(input('clear bin? '))
-        if ans == True:
-            rmtree('bin')
-            print('bin tree removed!')
+    def bin_directory():
+        if exists('bin') and ask:
+            ans = to_bool(input('clear bin? '))
+            if ans == True:
+                rmtree('bin')
+                print('bin tree removed!')
 
-    if exists('bin/debug'):
-        if yell:
-            print('bin directory already exists!')
-    else:
-        makedirs('bin/debug') # create bin and debug for c compiler
+        if exists('bin/debug'):
+            if yell:
+                print('bin directory already exists!')
+        else:
+            makedirs('bin/debug') # create bin and debug for c compiler
 
-    if exists('inputs') and ask:
-        ans = to_bool(input('clear inputs? '))
-        if ans == True:
-            rmtree('inputs')
+    def inputs_directory():
+        if exists('inputs') and ask:
+            ans = to_bool(input('clear inputs? '))
+            if ans == True:
+                rmtree('inputs')
+                print('inputs tree removed!')
 
-    if exists('inputs'):
-        if yell:
-            print('inputs directory already exists!')
-    else:
-        mkdir('inputs') # create inputs
+        if exists('inputs'):
+            if yell:
+                print('inputs directory already exists!')
+        else:
+            mkdir('inputs') # create inputs
+
+    # initialize all the directories
+    bin_directory()
+    inputs_directory()
 
 
 if __name__ == '__main__':
