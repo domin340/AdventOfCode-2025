@@ -1,5 +1,5 @@
 def part_1():
-    with open("inputs/day_2.txt") as f:
+    with open('inputs/day_2.txt', 'r') as f:
         content = f.read()
 
         _sum = 0;
@@ -17,6 +17,6 @@ def part_1():
         
         print(_sum)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     part_1()
 
