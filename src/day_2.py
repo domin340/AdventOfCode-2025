@@ -68,7 +68,16 @@ def part_2():
     # [ (1  2) 1 2 ] -> True! because another window is also 12
     def _repeats(n: int) -> bool:
         _s = str(n)
-        for j in range(1, len(_s)):
+        _len = len(_s)
+        
+        midpoint = _len // 2
+        if _len % 2 == 0 and _s[midpoint:] == _s[:midpoint]:
+            return True
+
+        for j in range(1, (_len // 2) + 1):
+            if _len % j != 0:
+                continue
+
             _sub = _s[:j]
             s_window = Window(_s, len(_sub), j)
             if all(s_window.against(_sub)):
