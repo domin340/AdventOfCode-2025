@@ -1,11 +1,12 @@
 #include <math.h>
-#include <stdatomic.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+#define ULLONG_CHAR_LEN 20
+#define STR_ULLONG_LEN (ULLONG_CHAR_LEN + 1)
 #define uint unsigned int
 
 // ! file content must be freed
@@ -78,7 +79,7 @@ int main(void) {
     size_t sum1 = 0;
 
     // buffer to hold number
-    char first_number[32], second_number[32];
+    char first_number[STR_ULLONG_LEN], second_number[STR_ULLONG_LEN];
 
     const char* delim = ",";
     char* next_token;
@@ -87,7 +88,7 @@ int main(void) {
         char* occurence = strchr(split, '-');
 
         // copy what's after dash until \0 placed by split
-        if (strcpy_s(second_number, 32, (occurence + 1)) != 0) {
+        if (strcpy_s(second_number, sizeof(second_number), (occurence + 1)) != 0) {
             perror("something wrong in input: ");
             break;
         }
@@ -95,7 +96,7 @@ int main(void) {
         // <first number>-<second number>
         // ^------------^ copy this part
         size_t first_number_size = strlen(split) - strlen(occurence);
-        if (strncpy_s(first_number, 32, split, first_number_size) != 0) {
+        if (strncpy_s(first_number, sizeof(first_number), split, first_number_size) != 0) {
             perror("couldn't parse second number: ");
             break;
         }
