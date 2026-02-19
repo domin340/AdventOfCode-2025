@@ -5,11 +5,14 @@ SOURCE_DIR = src
 BUILD_OUT = bin
 DEBUG_OUT = bin/debug
 
-CURRENT_DAY = day_1
+CURRENT_DAY = day_2
 CURRENT_FILE = $(SOURCE_DIR)/$(CURRENT_DAY).c
 
 day_1:
 	$(CC) $(SOURCE_DIR)/day_1.c -o $(BUILD_OUT)/day_1 $(CFLAGS)
+
+day_2:
+	$(CC) $(SOURCE_DIR)/day_2.c -o $(BUILD_OUT)/day_2 $(CFLAGS)
 
 build:
 	$(CC) $(CURRENT_FILE) -o $(BUILD_OUT)/main $(CFLAGS)
