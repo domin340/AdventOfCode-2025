@@ -7,7 +7,7 @@ static inline int chr_digit_to_int(char chr) {
     return chr - '0';
 }
 
-int get_highest_joltage_two(char* str, size_t len) {
+int get_highest_joltage_2(char* str, size_t len) {
     int highest = 0;
 
     char* str_end = str + len;
@@ -56,7 +56,7 @@ size_t rec_get_highest_joltage_12(char* str, size_t len) {
     return rec_highest_joltage_sub(str, end, 0);
 }
 
-// recursive version of "get_highest_joltage_two"
+// recursive version of "get_highest_joltage_2"
 size_t rec_get_highest_joltage_2(char* str, size_t len) {
     char* end = (str + len) - 1;
     return rec_highest_joltage_sub(str, end, 0);
