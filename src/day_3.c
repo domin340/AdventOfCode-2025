@@ -15,7 +15,7 @@ int get_highest_joltage_two(char* str, size_t len) {
         // looking from left to right this is essentially current digit value times 10
         int left_product = chr_digit_to_int(*str) * 10;
 
-        for (char* c = (str + 1); c <= str_end; ++c) {
+        for (char* c = (str + 1); c < str_end; ++c) {
             // product they create with this pair
             int product = left_product + chr_digit_to_int(*c);
 
