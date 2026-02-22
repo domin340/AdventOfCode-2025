@@ -1,0 +1,18 @@
+[
+ {
+  "directory": "C:\\Users\\powes\\Documents\\Programming\\AdventOfCode-2025",
+  "arguments": [
+   "clang",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-Iinclude",
+   "src/helper.c",
+   "src/day_3.c",
+   "-o",
+   "bin/main"
+  ],
+  "file": "src/day_3.c"
+ }
+]
