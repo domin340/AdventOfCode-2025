@@ -1,4 +1,7 @@
 #include <helper.h>
+#include <stddef.h>
+#include <stdlib.h>
+#include <string.h>
 
 char* read_file_until_eof(const char* fname, size_t* out_size) {
     FILE* f;
@@ -27,6 +30,23 @@ char* read_file_until_eof(const char* fname, size_t* out_size) {
     fclose(f);
 
     return src;
+}
+
+size_t get_lines_count(char* src) {
+    size_t counter = 0;
+    char* last_pos = src;
+
+    while ((last_pos = strpbrk(last_pos, "\r\n")) != NULL) {
+        if ((*last_pos) == '\r' && *(last_pos + 1) == '\n') {
+            last_pos += 2;
+        } else {
+            last_pos += 1;
+        }
+
+        ++counter;
+    }
+
+    return fmax(counter, 1);
 }
 
 uint integer_char_len(size_t n) {

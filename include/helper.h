@@ -12,5 +12,7 @@
 // ! file content must be freed
 char* read_file_until_eof(const char* fname, size_t* out_size);
 
+size_t get_lines_count(char* src);
+
 // returns the amount of characters the number takes if it was a string
 uint integer_char_len(size_t n);

@@ -11,7 +11,7 @@ SOURCE_DIR = src
 BUILD_OUT = bin
 DEBUG_OUT = bin/debug
 
-CURRENT_DAY = day_3
+CURRENT_DAY = day_4
 CURRENT_FILE = $(SOURCE_DIR)/$(CURRENT_DAY).c
 
 day_1:
