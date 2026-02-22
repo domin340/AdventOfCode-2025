@@ -1,6 +1,7 @@
 # Bin directory
 bin/*
 bin/debug/*
+.cache/
 
 # Advent Of Code
 inputs/*
